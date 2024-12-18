@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet"  type="text/css"  href='{% static "style.css" %}'>
+</head>
+<body>
+    <header>
+        {% block pagename %}
+        <h1>{{ title }}</h1>
+        {% endblock %}
+    </header>
+
+    <nav>
+        {% block menu %}
+        <ul>
+            <li><a href="/main_page"><h2>Главная</h2></a></li>
+            <li><a href="/shop"><h2>Магазин</h2></a></li>
+            <li><a href="/basket"><h2>Корзина</h2></a></li>
+        </ul>
+        {% endblock %}
+    </nav>
+
+    <main>
+        {% block content %}
+        <ul>
+            {% if content is None %}
+            <p>Здусь пока ни чего нет :-(</p>
+            {% else %}
+                {% for i in content %}
+                    <p><li>{{i}}<a href="#"><button>Купить</button></a></li></p>
+                {% endfor %}
+            {% endif %}
+        </ul>
+        {% endblock %}
+    </main>
+
+    <header>
+        {% block back %}
+        <button><a href="/main_page"> На Главную страницу </a></button>
+        {% endblock %}
+    </header>
+
+</body>
