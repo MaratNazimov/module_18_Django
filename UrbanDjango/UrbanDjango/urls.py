@@ -27,5 +27,5 @@ urlpatterns = [
     path('main_page/', main_page),
     path('shop/', shop),
     path('basket/', basket),
-    path('menu', menu),
+    path('menu/', menu),
 ]
